@@ -2,11 +2,11 @@
 
 ## 3.4.0
 
-`NotFloran\MjmlBundle\SwiftMailer\MjmlPlugin` is deprecated and will be removed in v4, you must copy and paste the class in your project.
+`Taylix\MjmlBundle\SwiftMailer\MjmlPlugin` is deprecated and will be removed in v4, you must copy and paste the class in your project.
 
 ## 3.0.0
 
-The class `NotFloran\MjmlBundle\Mjml` is replaced with `NotFloran\MjmlBundle\Renderer\BinaryRenderer`.
+The class `Taylix\MjmlBundle\Mjml` is replaced with `Taylix\MjmlBundle\Renderer\BinaryRenderer`.
 
 ### Configuration
 
@@ -35,4 +35,4 @@ mjml:
 
 ### Services
 
-The service `@NotFloran\MjmlBundle\Mjml` no longer exists, you must use `@mjml` or `@NotFloran\MjmlBundle\Renderer\RendererInterface`.
+The service `@Taylix\MjmlBundle\Mjml` no longer exists, you must use `@mjml` or `@Taylix\MjmlBundle\Renderer\RendererInterface`.

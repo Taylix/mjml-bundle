@@ -1,17 +1,17 @@
 {
-    "name": "notfloran/mjml-bundle",
+    "name": "taylix/mjml-bundle",
     "type": "symfony-bundle",
     "description": "Symfony bundle for MJML",
     "keywords": ["mjml", "email"],
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "NotFloran\\MjmlBundle\\": "src"
+            "Taylix\\MjmlBundle\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotFloran\\MjmlBundle\\Tests\\": "tests/"
+            "Taylix\\MjmlBundle\\Tests\\": "tests/"
         }
     },
     "authors": [

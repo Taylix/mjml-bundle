@@ -1,6 +1,7 @@
 services:
-    NotFloran\MjmlBundle\Twig\Extension:
+    Taylix\MjmlBundle\Twig\Extension:
         arguments:
-            $mjml: '@NotFloran\MjmlBundle\Renderer\RendererInterface'
+            $mjml: '@Taylix\MjmlBundle\Renderer\RendererInterface'
         tags:
             - { name: twig.extension }
+

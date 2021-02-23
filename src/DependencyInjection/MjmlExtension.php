@@ -1,9 +1,9 @@
 <?php
 
-namespace NotFloran\MjmlBundle\DependencyInjection;
+namespace Taylix\MjmlBundle\DependencyInjection;
 
-use NotFloran\MjmlBundle\Renderer\BinaryRenderer;
-use NotFloran\MjmlBundle\Renderer\RendererInterface;
+use Taylix\MjmlBundle\Renderer\BinaryRenderer;
+use Taylix\MjmlBundle\Renderer\RendererInterface;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -18,16 +18,20 @@ class MjmlExtension extends Extension
         $loader->load('services.yml');
 
         $configuration = $this->getConfiguration($configs, $container);
-        $config = $this->processConfiguration($configuration, $configs);
+        $config        = $this->processConfiguration($configuration, $configs);
 
         $rendererServiceId = null;
 
         if ('binary' === $config['renderer']) {
             $rendererDefinition = new Definition(BinaryRenderer::class);
-            $rendererDefinition->addArgument($config['options']['binary']);
-            $rendererDefinition->addArgument($config['options']['minify']);
-            $rendererDefinition->addArgument($config['options']['validation_level']);
-            $rendererDefinition->addArgument($config['options']['node']);
+            $rendererDefinition
+                ->addArgument($config['options']['binary'])
+                ->addArgument($config['options']['minify'])
+                ->addArgument($config['options']['validation_level'])
+                ->addArgument($container->getParameter('kernel.cache_dir'))
+                ->addArgument($container->getParameter('kernel.debug'))
+                ->addArgument($config['options']['node'])
+            ;
             $container->setDefinition($rendererDefinition->getClass(), $rendererDefinition);
             $rendererServiceId = $rendererDefinition->getClass();
         } elseif ('service' === $config['renderer']) {

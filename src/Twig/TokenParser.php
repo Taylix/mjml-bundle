@@ -1,6 +1,6 @@
 <?php
 
-namespace NotFloran\MjmlBundle\Twig;
+namespace Taylix\MjmlBundle\Twig;
 
 use Twig\TokenParser\AbstractTokenParser;
 use Twig\Token;

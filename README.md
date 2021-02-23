@@ -1,8 +1,5 @@
 # MjmlBundle
 
-[![Latest Stable Version](https://poser.pugx.org/notfloran/mjml-bundle/v/stable.svg)](https://packagist.org/packages/notfloran/mjml-bundle)
-[![Latest Unstable Version](https://poser.pugx.org/notfloran/mjml-bundle/v/unstable.svg)](https://packagist.org/packages/notfloran/mjml-bundle)
-
 Bundle to use [MJML](https://mjml.io/) 3 and 4 with Symfony >= 3.
 
 ## Installation
@@ -12,7 +9,7 @@ Bundle to use [MJML](https://mjml.io/) 3 and 4 with Symfony >= 3.
 Open a command console, enter your project directory and execute:
 
 ```console
-$ composer require notfloran/mjml-bundle
+$ composer require taylix/mjml-bundle
 ```
 
 ### Applications that don't use Symfony Flex
@@ -23,7 +20,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```console
-$ composer require notfloran/mjml-bundle
+$ composer require taylix/mjml-bundle
 ```
 
 This command requires you to have Composer installed globally, as explained
@@ -45,7 +42,7 @@ class AppKernel extends Kernel
     {
         $bundles = [
             // ...
-            new NotFloran\MjmlBundle\MjmlBundle(),
+            new Taylix\MjmlBundle\MjmlBundle(),
         ];
 
         // ...
@@ -75,7 +72,7 @@ mjml:
   renderer: binary # default: binary
   options:
     binary: '%kernel.project_dir%/node_modules/.bin/mjml' # default: mjml
-    node: '/Users/user/.nvm/versions/node/v10.16.0/bin/node' # default: null
+    node: '/usr/local/bin/node' # default: null
     minify: true # default: false
     validation_level: skip # default: strict. See https://mjml.io/documentation/#validating-mjml
 ```
@@ -84,7 +81,7 @@ The `node` option is there for those who have problems with `$PATH`, see [#35](h
 
 ### Custom
 
-First you must create a class which implements `NotFloran\MjmlBundle\Renderer\RendererInterface`, then declare it as a service.
+First you must create a class which implements `Taylix\MjmlBundle\Renderer\RendererInterface`, then declare it as a service.
 
 And finally you have to change the configuration:
 
@@ -196,7 +193,7 @@ public function sendEmail(MailerInterface $mailer)
 ```
 
 ```php
-use NotFloran\MjmlBundle\Renderer\RendererInterface;
+use Taylix\MjmlBundle\Renderer\RendererInterface;
 
 // ...
 
@@ -217,35 +214,6 @@ public function sendEmail(MailerInterface $mailer, RendererInterface $mjml)
 }
 ```
 
-## SwiftMailer integration
-
-*❗ This integration is deprecated and will be removed in the next major version.*
-
-Declare the following service:
-
-```yaml
-NotFloran\MjmlBundle\SwiftMailer\MjmlPlugin:
-    tags: [swiftmailer.default.plugin]
-```
-
-Create a SwiftMailer message with a MJML body (without `{% mjml %}`) and with `text/mjml` as content-type:
-
-```php
-$message = (new \Swift_Message('Hello Email'))
-    ->setFrom('send@example.com')
-    ->setTo('recipient@example.com')
-    ->setBody(
-        $this->renderView('mail/example.mjml.twig'),
-        'text/mjml'
-    );
-
-$mailer->send($message);
-```
-
-The plugin will automatically render the MJML body and replace the body with the rendered HTML.
-
-In the case where a spool is used: the MJML content is save in the spool and render when the spool is flushed.
-
 ## License
 
-[MjmlBundle](https://github.com/notFloran/mjml-bundle) is licensed under the [MIT license](LICENSE).
+[MjmlBundle](https://github.com/taylix/mjml-bundle) is licensed under the [MIT license](LICENSE).

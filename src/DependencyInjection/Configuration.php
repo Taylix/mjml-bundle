@@ -1,6 +1,6 @@
 <?php
 
-namespace NotFloran\MjmlBundle\DependencyInjection;
+namespace Taylix\MjmlBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

@@ -1,8 +1,8 @@
 <?php
 
-namespace NotFloran\MjmlBundle\Twig;
+namespace Taylix\MjmlBundle\Twig;
 
-use NotFloran\MjmlBundle\Renderer\RendererInterface;
+use Taylix\MjmlBundle\Renderer\RendererInterface;
 use Twig\Extension\AbstractExtension;
 
 class Extension extends AbstractExtension

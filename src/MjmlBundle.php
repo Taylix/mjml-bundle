@@ -1,6 +1,6 @@
 <?php
 
-namespace NotFloran\MjmlBundle;
+namespace Taylix\MjmlBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
