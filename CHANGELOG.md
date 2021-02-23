@@ -1,7 +1,9 @@
 # Changelog
 
+## 3.5.3
+* Allow symfony 5
+
 ## 3.5.2 (2021-02-23)
-* Remove swiftmailer implementation
 * Use FileSystemCache to cache mjml version (all env) and mjml generate html when debug is false 
 
 ## 3.5.1 (2021-01-23)

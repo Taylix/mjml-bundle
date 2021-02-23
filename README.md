@@ -52,6 +52,21 @@ class AppKernel extends Kernel
 }
 ```
 
+## Config
+
+Add config, not compatible with composer recipes
+
+```
+# config/packages/mjml.yaml
+# see https://github.com/Taylix/mjml-bundle#binary
+mjml:
+    renderer: 'binary'
+    options:
+        binary: '%kernel.project_dir%/node_modules/.bin/mjml'
+        minify: false
+        node: '/usr/local/bin/node'
+```
+
 ## Renderer
 
 For the moment only one renderer is available, the binary renderer.
