@@ -45,6 +45,9 @@ final class BinaryRenderer implements RendererInterface
         $this->node            = $node;
         $this->debug           = $debug;
         $this->cacheDir        = $this->ensureDirExists(sprintf('%s/taylix/mjml', $cacheDir));
+
+        // TODO Cache error with url caching, force update
+        $this->debug = true;
     }
 
     /**
